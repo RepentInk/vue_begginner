@@ -162,16 +162,17 @@ th {
 }
 
 /* Page Footer */
-.footer-section {
-  box-sizing: border-box;
-  background: #0f0f0f;
-  width: 100%;
-  padding: 20px;
-  color: white;
+.footer-section{
+    box-sizing: border-box;
+    background: #d4d4d4;
+    width: 100%;
+    padding: 20px;
+    color: black;
+    
 }
-.footer-section a {
-  color: white;
-  text-decoration: none;
+.footer-section a{
+    color: black;
+    text-decoration: none;
 }
 
 .footer-links {
@@ -179,22 +180,26 @@ th {
   padding: 0 40px;
 }
 /* footer social icons */
-.social-icons {
-  border-right: 2px solid rgb(255, 255, 255);
-  width: 50%;
+.social-icons{
+    width: 30%;
 }
-.social-icons ul > a {
-  display: block;
-  background-position: center;
-  background-size: contain;
-  width: 40px;
-  height: 40px;
-  margin: 10px 0;
-  border-radius: 20%;
+.social-icons ul{
+    display: flex;
 }
-.social-icons ul > a:hover {
-  box-shadow: 2px 2px 4px #ffffff;
-  transition: all 0.3s ease-in-out;
+.social-icons ul >a{
+display: block;
+background-position: center;
+background-size: contain;
+width: 40px;
+height: 40px;
+margin:  0 10px;
+border-radius: 20%; 
+
+
+}
+.social-icons ul >a:hover{
+  box-shadow: 2px 2px 4px black;  
+  transition: all .3s ease-in-out; 
 }
 .social-icons a:nth-of-type(1) {
   background-image: url(../images/logo-facebook.svg);
@@ -206,8 +211,8 @@ th {
   background-image: url(../images/logo-linkedin.svg);
 }
 /* footer products links */
-.products {
-  width: 50%;
+.products{
+    flex: 1;
 }
 .products h4 {
   margin: 0;
@@ -221,13 +226,14 @@ th {
   justify-content: center;
   align-items: center;
 }
-.products > ul {
-  align-items: flex-start;
+.products> ul{
+    align-items: flex-start;
+     flex-direction: row;
 }
-.products ul > a {
-  margin: 10px 0;
-  transform: scale(1);
-  transition: all 0.3s ease-in-out;
+.products ul >a{
+    margin: 0 10px ;
+    transform: scale(1);
+    transition: all .3s ease-in-out; 
 }
 .products ul > a:hover {
   transform: scale(1.1);
