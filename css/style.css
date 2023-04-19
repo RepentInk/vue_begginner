@@ -51,7 +51,80 @@ nav ul li a:hover {
 
 
 /* Page Form */
+.form-section > h2 {
+    text-align: center;
+}
 
+.form-section {
+    margin: auto;
+    width: 60%;
+    overflow: auto;
+    padding: 3rem 2rem;
+    border-radius: 5px;
+    background-color: #f4f4f4;
+}
+
+.my-form {
+    padding: 2rem;
+}
+
+.input-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.button-class {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.button-class {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.btn {
+    width: 100%;
+    background: #333;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: turquoise;
+    color: black;
+}
+
+input {
+    width: 85%;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+
+.bio-input {
+    display: flex;
+    margin: 0 auto;
+}
+
+textarea {
+    width: 93%;
+    padding: 20px;
+    margin-left: 10px;
+    resize: none;
+}
+
+.button-class {
+    width: 100%;
+
+}
 
 
 
