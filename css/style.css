@@ -51,7 +51,63 @@ nav ul li a:hover {
 
 
 /* Page Form */
+.form-section > h2 {
+    text-align: center;
+}
 
+.form-section {
+    margin: auto;
+    width: 50%;
+    overflow: auto;
+    padding: 3rem 2rem;
+    border-radius: 5px;
+    background-color: #f4f4f4;
+}
+
+.my-form {
+    padding: 2rem;
+}
+
+.input-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.button-class {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+
+.btn {
+    width: 45%;
+    background: #333;
+    color: #fff;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.btn:hover {
+    background: turquoise;
+    color: black;
+}
+
+input, textarea {
+    width: 70%;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+
+.button-class {
+    width: 100%;
+
+}
 
 
 
