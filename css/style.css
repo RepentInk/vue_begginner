@@ -38,15 +38,20 @@
 
 }
 
+.button-class {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
 
 .btn {
-    width: 45%;
+    width: 100%;
     background: #333;
     color: #fff;
     border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .btn:hover {
@@ -54,12 +59,24 @@
     color: black;
 }
 
-input, textarea {
-    width: 70%;
+input {
+    width: 85%;
     margin: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
     padding: 20px;
+}
+
+.bio-input {
+    display: flex;
+    margin: 0 auto;
+}
+
+textarea {
+    width: 93%;
+    padding: 20px;
+    margin-left: 10px;
+    resize: none;
 }
 
 .button-class {
