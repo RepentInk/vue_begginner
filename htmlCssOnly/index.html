@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+  <head>
+     <title>Vue For Beginners</title>
+     <link rel="stylesheet" href="./css/style.css">
+
+     <!-- Add Vue CDN -->
+     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+   </head>
+  <body>
+      <!-- Create a wrapper -->
+      <div id="wrap">
+
+         <div class="header-section">
+            <header>
+               <nav>
+                  <a href="#" class="logo"><img src="images/logo.png" alt="SDB 2023"></a>
+                  <ul>
+                     <li><a href="index.html">Home</a></li>
+                     <li><a href="about.html">About</a></li>
+                     <li><a href="contact.html">Contact</a></li>
+                  </ul>
+               </nav>
+            </header>
+         </div>
+
+         <div class="form-section">
+            <h2>MAXIM REGISTRATION FORM</h2>
+             <form @submit.prevent="saveData" class="my-form">
+               <div class="input-form">
+                  <div>
+                     <input type="text" id="fname" v-model="user.first_name" placeholder="First Name">
+                     <input type="tel" id="phone" v-model="user.phone_number" placeholder="+233 55 753 2439">
+                     <input type="date" id="date" v-model="user.date_of_birth" placeholder="Date of Birth">
+                  </div>
+                  <div>
+                     <input type="text" id="lname" v-model="user.last_name" placeholder="Last Name">
+                     <input type="email" id="email" v-model="user.email" placeholder="Your Email">
+                     <input type="text" id="location" v-model="user.location" placeholder="Location">
+                  </div>
+               </div>
+               <div class="bio-input">
+                  <textarea name="comment" id="biography" v-model="user.biography" cols="40" rows="5"></textarea>
+               </div>
+               <div class="button-class">
+                  <input type="button" class="btn" value="Clear">
+                  <input type="submit" class="btn" value="Submit">
+               </div>
+            </form>
+         </div>
+
+         <div class="table-section">
+            <h2>LIST OF ALL APPLICANTS</h2>
+            <Card class="card">
+              <table>
+                 <tr>
+                    <th>Id</th>
+                    <th>First Name </th>
+                    <th>Last Name</th>
+                    <th>Contact</th>
+                    <th>Email</th>
+                    <th>Date of birth</th>
+                    <th>Location</th>
+                    <th>Biography</th>
+                 </tr>
+                 <tr>
+                    <td>1</td>
+                    <td>Calvin</td>
+                    <td>Asantey</td>
+                    <td>246467880</td>
+                    <td>calvin@gmail.com</td>
+                    <td>01-12-2001</td>
+                    <td>Legon</td>
+                    <td>Single</td>
+                 </tr>
+                 <tr>
+                    <td>2</td>
+                    <td>Alfred</td>
+                    <td>Nkrumah</td>
+                    <td>0243648256</td>
+                    <td>alfredo@gmail.com</td>
+                    <td>06-03-1957</td>
+                    <td>Akosombo</td>
+                    <td>Married</td>
+                 </tr>
+                 <tr>
+                    <td>3</td>
+                    <td>Prince</td>
+                    <td>Momo</td>
+                    <td>054382929</td>
+                    <td>princehacker@gmail.com</td>
+                    <td>17-09-2003</td>
+                    <td>Circle</td>
+                    <td>Married</td>
+                 </tr>
+                 <tr>
+                    <td>4</td>
+                    <td>Daniella</td>
+                    <td>Tindan</td>
+                    <td>03443234</td>
+                    <td>dap@2023.com</td>
+                    <td>19-04-1999</td>
+                    <td>Circle</td>
+                    <td>Married</td>
+                 </tr>
+                 <tr>
+                    <td>5</td>
+                    <td>Razak</td>
+                    <td>Fast</td>
+                    <td>03443443</td>
+                    <td>zak@gmail.com</td>
+                    <td>18-12-2022</td>
+                    <td>Tamale</td>
+                    <td>Single</td>
+                 </tr>
+              </table>
+            </Card>
+         </div>
+
+         <div class="footer-section">
+            <div class="footer-links">
+              <div class="social-icons">
+                 <ul>
+                    <a href="https://www.facebook.com/maximnyansa/" target="_blank"></a>
+                    <a href="https://twitter.com/MaximNyansa" target="_blank"></a>
+                    <a href="https://www.linkedin.com/company/maxim-nyansa-it-solutions/" target="_blank"></a>
+                 </ul>
+              </div>
+              <div class="products">
+                 <h4>Maxim Products</h4>
+                 <ul>
+                    <a href="https://web.trinitysoftwarecenter.com/" target="_blank">Trinity Software Center</a>
+                    <a href="https://skuuni.com/" target="_blank">Skuuni</a>
+                    <a href="https://library.maximnyansa.com" target="_blank">Maxim Digital Library</a>
+                 </ul>
+              </div>
+            </div>
+         </div>
+
+      </div>
+
+      <script>
+           const { createApp } = Vue;
+           createApp({
+              data() {
+                  return {
+                      message: "Hello Nyarko Isaac",
+                      user: {
+                          first_name: "",
+                          last_name: "",
+                          email: "",
+                          phone_number: "",
+                          date_of_birth: "",
+                          location: "",
+                          biography: ""
+                      } 
+                  }
+              },
+              methods: {
+                  saveData() {
+                      alert("Data save to local storage");
+                  }
+              },
+           }).mount("#wrap");
+
+      </script>
+  </body>
+</html>
