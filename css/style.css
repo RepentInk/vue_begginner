@@ -31,3 +31,77 @@
 
 
 /* Page Footer */
+.footer-section{
+    box-sizing: border-box;
+    background: #0f0f0f;
+    width: 100%;
+    padding: 20px;
+    color: white;
+    
+}
+.footer-section a{
+    color: white;
+    text-decoration: none;
+}
+
+.footer-links{
+    display: flex;
+    padding: 0 40px;
+}
+/* footer social icons */
+.social-icons{
+    border-right: 2px solid rgb(255, 255, 255);
+    width: 50%;
+}
+.social-icons ul >a{
+display: block;
+background-position: center;
+background-size: contain;
+width: 40px;
+height: 40px;
+margin: 10px 0;
+border-radius: 20%; 
+
+
+}
+.social-icons ul >a:hover{
+  box-shadow: 2px 2px 4px #ffffff;  
+  transition: all .3s ease-in-out; 
+}
+.social-icons a:nth-of-type(1){
+    background-image: url(../images/logo-facebook.svg);
+}
+.social-icons a:nth-of-type(2){
+    background-image: url(../images/logo-twitter.svg);
+}
+.social-icons a:nth-of-type(3){
+    background-image: url(../images/logo-linkedin.svg);
+}
+/* footer products links */
+.products{
+    width: 50%;
+}
+.products h4{
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+}
+.products, .products ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.products> ul{
+    align-items: flex-start;
+}
+.products ul >a{
+    margin: 10px 0;
+    transform: scale(1);
+    transition: all .3s ease-in-out; 
+}
+.products ul >a:hover{
+    transform: scale(1.1);
+}
+
