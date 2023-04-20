@@ -1,0 +1,139 @@
+* {
+  box-sizing: border-box;
+}
+
+.about-section {
+  height: 80vh;
+}
+
+.about-center::before {
+  content: "";
+  background-color: #f4f4f4;
+  clip-path: polygon(0 64%, 100% 13%, 100% 99%, 0 100%);
+  height: 80vh;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+.about-center {
+  position: relative;
+  display: flex;
+}
+
+.about-img {
+  position: relative;
+  top: 0;
+  left: 0;
+  margin-left: 30px;
+}
+
+.F1 {
+  position: relative;
+  top: 0;
+  left: 0;
+  border: 1px solid #000000;
+  height: 600px;
+  width: 450px;
+}
+
+.F2 {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  border: 1px solid #000000;
+  height: 600px;
+  width: 450px;
+  border-radius: 5px;
+}
+
+.about-us {
+  margin: 50px;
+}
+
+.about-us h1:after {
+  content: "";
+  background-color: #cb42a9;
+  display: block;
+  width: 100px;
+  height: 10px;
+  border-radius: 10px;
+  margin-left: 26px;
+}
+
+.box {
+  position: absolute;
+}
+.btn {
+  border: none;
+  display: block;
+  text-align: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  color: black;
+  font-weight: 600;
+  font-size: 13px;
+  background-color: #cb42a9;
+  padding: 15px 50px;
+  margin: 0 auto;
+}
+.btn span {
+  position: relative;
+  z-index: 1;
+}
+
+.btn:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 470%;
+  width: 140%;
+  background: #d4d4d4;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-transform: translateX(-100%) translateY(-25%) rotate(45deg);
+  transform: translateX(-100%) translateY(-25%) rotate(45deg);
+}
+
+.btn:hover:after {
+  -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
+  transform: translateX(-9%) translateY(-25%) rotate(45deg);
+}
+
+.contact-us-section {
+  display: flex;
+}
+
+.contact-message {
+  width: 90%;
+}
+
+.contact-form {
+  padding-top: 50px;
+}
+
+/* .location {
+  display: flex;
+}
+
+.location > loc-icon {
+  margin-top: 20px;
+}
+.phonenumber {
+  display: flex;
+}
+
+.phonenumber > phone-icon {
+  margin-top: 20px;
+}
+.email {
+  display: flex;
+} */
+
+.contact-message img {
+  height: 80px;
+  width: 80px;
+}
