@@ -1,0 +1,54 @@
+.main {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  h1 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    margin-bottom: 20px;
+  }
+  
+  .about-image {
+    width: 100%;
+    height: auto;
+    margin-right: 50px;
+  }
+  
+  .image {
+    width: 40%;
+  }
+  
+  .about-quote {
+    font-style: italic;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .about-list {
+    margin-bottom: 20px;
+  }
+  
+  .about-list h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .about-list ul {
+    margin-left: 15px;
+    list-style: disc;
+  }
+  
+  .about-list li {
+    margin-bottom: 10px;
+  }
+  .details{
+    width: 50%;
+  }
