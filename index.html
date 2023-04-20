@@ -35,21 +35,40 @@
       <!-- Page Section Form -->
       <div class="form-section">
          <h2>{{formTitle}}</h2>
-         <form action="" class="my-form">
+         <form @submit.preventn="saveData" class="my-form">
             <div class="input-form">
                <div>
-                  <input type="text" id="fname" name="fname" value="" placeholder="First Name">
-                  <input type="tel" id="phone" name="phone" value="" placeholder="+233 55 753 2439">
-                  <input type="date" id="date" name="date" value="" placeholder="Date of Birth">
+                  <input type="text" required v-model="registration.first_name" id="fname" name="fname" value=""
+                     placeholder="First Name">
+                  <input type="tel" required v-model="registration.phone_number" id="phone" name="phone" value=""
+                     placeholder="+233 55 753 2439">
+                  <input type="date" required v-model="registration.date_of_birth" id="date" name="date" value=""
+                     placeholder="Date of Birth">
                </div>
                <div>
-                  <input type="text" id="lname" name="lname" value="" placeholder="Last Name">
-                  <input type="email" id="email" name="email" value="" placeholder="Your Email">
-                  <input type="text" id="location" name="location" value="" placeholder="Location">
+                  <input type="text" required v-model="registration.last_name" id="lname" name="lname" value=""
+                     placeholder="Last Name">
+                  <input type="email" required v-model="registration.email" id="email" name="email" value=""
+                     placeholder="Your Email">
+                  <input type="text" v-model="registration.location" id="location" name="location" value=""
+                     placeholder="Location">
                </div>
             </div>
             <div class="bio-input">
-               <textarea name="comment" id="" cols="40" rows="5"></textarea>
+               <textarea name="comment" id="" v-model="registration.biography" cols="40" rows="5"></textarea>
+            </div>
+
+            <div
+               style="border: 1px solid black; border-radius: 1px; height: 300px; margin: 15px; padding: 5px; overflow: auto;">
+               <h3>First Name: {{registration.first_name}}</h3>
+               <h3>First Name: {{registration.last_name}}</h3>
+               <h3>Last Name: {{registration.last_name}}</h3>
+               <h3>Phone Number: {{registration.phone_number}}</h3>
+               <h3>Email Address: {{registration.email}}</h3>
+               <h3>Location: {{registration.location}}</h3>
+               <h3>Biography: {{registration.biography}}</h3>
+               <h3>Date Of Birth: {{registration.date_of_birth}}</h3>
+
             </div>
 
             <div class="button-class">
@@ -72,66 +91,31 @@
          <h2>LIST OF ALL APPLICANTS</h2>
          <Card class="card">
             <table>
-               <tr>
-                  <th>Id</th>
-                  <th>First Name </th>
-                  <th>Last Name</th>
-                  <th>Contact</th>
-                  <th>Email</th>
-                  <th>Date of birth</th>
-                  <th>Location</th>
-                  <th>Biography</th>
-               </tr>
-               <tr>
-                  <td>1</td>
-                  <td>Calvin</td>
-                  <td>Asantey</td>
-                  <td>246467880</td>
-                  <td>calvin@gmail.com</td>
-                  <td>01-12-2001</td>
-                  <td>Legon</td>
-                  <td>Single</td>
-               </tr>
-               <tr>
-                  <td>2</td>
-                  <td>Alfred</td>
-                  <td>Nkrumah</td>
-                  <td>0243648256</td>
-                  <td>alfredo@gmail.com</td>
-                  <td>06-03-1957</td>
-                  <td>Akosombo</td>
-                  <td>Married</td>
-               </tr>
-               <tr>
-                  <td>3</td>
-                  <td>Prince</td>
-                  <td>Momo</td>
-                  <td>054382929</td>
-                  <td>princehacker@gmail.com</td>
-                  <td>17-09-2003</td>
-                  <td>Circle</td>
-                  <td>Married</td>
-               </tr>
-               <tr>
-                  <td>4</td>
-                  <td>Daniella</td>
-                  <td>Tindan</td>
-                  <td>03443234</td>
-                  <td>dap@2023.com</td>
-                  <td>19-04-1999</td>
-                  <td>Circle</td>
-                  <td>Married</td>
-               </tr>
-               <tr>
-                  <td>5</td>
-                  <td>Razak</td>
-                  <td>Fast</td>
-                  <td>03443443</td>
-                  <td>zak@gmail.com</td>
-                  <td>18-12-2022</td>
-                  <td>Tamale</td>
-                  <td>Single</td>
-               </tr>
+               <thead>
+                  <tr>
+                     <th>Id</th>
+                     <th>First Name </th>
+                     <th>Last Name</th>
+                     <th>Contact</th>
+                     <th>Email</th>
+                     <th>Date of birth</th>
+                     <th>Location</th>
+                     <th>Biography</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr v-for="(syudent, index) in listOfStudents" :key="index">
+                     <td>{{ index += 1}}</td>
+                     <td>{{student.first_name}}</td>
+                     <td>{{student.last_name}}</td>
+                     <td>{{student.contact}}</td>
+                     <td>{{student.email}}</td>
+                     <td>{{student.date_of_birth}}</td>
+                     <td>{{student.location}}</td>
+                     <td>{{student.biography}}</td>
+                  </tr>
+
+               </tbody>
             </table>
          </Card>
       </div>
@@ -206,9 +190,21 @@
                   date_of_birth: "",
                   location: "",
                   biography: ""
-               }
+               },
+               lostOfStudents: [
+
+               ]
             }
+         },
+
+         methods: {
+
+            saveData() {
+               this.lostOfStudents.push(this.registration)
+            }
+
          }
+
       }).mount("#wrapper");
    </script>
 </body>
