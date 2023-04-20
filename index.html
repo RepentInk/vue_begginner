@@ -2,9 +2,12 @@
   <head>
      <title>Vue For Beginners</title>
      <link rel="stylesheet" href="./css/style.css">
+     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
    </head>
   <body>
        <!-- Page Header -->
+       <div id="app">{{ messag }}</div>
       <div class="header-section">
          <header>
             <nav>
@@ -17,13 +20,6 @@
 	         </nav>
          </header>
       </div>
-
-
-
-
-
-
-
 
         <!-- Page Section Form -->
        <div class="form-section">
@@ -52,13 +48,6 @@
                  </form>
        </div>
       
-
-
-
-
-
-
-
 
        <!-- Page Section Table -->
        <div class="table-section">
@@ -130,11 +119,6 @@
        </div>
 
 
-
-
-
-
-
        <!-- Body Section Footer -->
        <div class="footer-section">
           <div class="footer-links">
@@ -158,8 +142,16 @@
 
 
 
-
-
-
+       <script>
+         const { createApp } = Vue
+         createApp({
+          data() {
+            return {
+                  message: 'Hello Vue!'
+            }
+          }
+        }).mount('#app')
+      </script>
+   
   </body>
 </html>
