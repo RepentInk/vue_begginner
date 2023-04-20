@@ -4,10 +4,10 @@
    <title>Vue For Beginners</title>
    <link rel="stylesheet" href="./css/style.css">
 
+   <!-- Add Vue js -->
    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
 </head>
-
 
 <body>
 
@@ -31,25 +31,26 @@
 
 
 
+
       <!-- Page Section Form -->
       <div class="form-section">
-         <h2>MAXIM REGISTRATION FORM</h2>
-         <form @submit.prevent="saveData" action="" class="my-form">
+         <h2>{{formTitle}}</h2>
+         <form @submit.prevent="saveData" class="my-form">
             <div class="input-form">
                <div>
-                  <input type="text" required v-model="registration.first_name" id="fname" name="fname" value=""
+                  <input type="text" required v-model="registration.first_name" id="fname" name="fname"
                      placeholder="First Name">
-                  <input type="tel" required v-model="registration.phone_number" id="phone" name="phone" value=""
+                  <input type="tel" required v-model="registration.phone_number" id="phone" name="phone"
                      placeholder="+233 55 753 2439">
-                  <input type="date" required v-model="registration.date_of_birth" id="date" name="date" value=""
+                  <input type="date" required v-model="registration.date_of_birth" id="date" name="date"
                      placeholder="Date of Birth">
                </div>
                <div>
-                  <input type="text" required v-model="registration.last_name" id="lname" name="lname" value=""
+                  <input type="text" required v-model="registration.last_name" id="lname" name="lname"
                      placeholder="Last Name">
-                  <input type="email" required v-model="registration.email_address" id="email" name="email" value=""
+                  <input type="email" required v-model="registration.email" id="email" name="email"
                      placeholder="Your Email">
-                  <input type="text" required v-model="registration.location" id="location" name="location" value=""
+                  <input type="text" required v-model="registration.location" id="location" name="location"
                      placeholder="Location">
                </div>
             </div>
@@ -57,15 +58,15 @@
                <textarea name="comment" v-model="registration.biography" id="" cols="40" rows="5"></textarea>
             </div>
 
-            <div
-               style="border: 1px solid gray; border-radius: 0.2rem; height: 300px; margin: 9px; padding: 5px; overflow: auto;">
-               <h3>First Name: {{registration.first_name}}</h3>
-               <h3>Last Name: {{registration.last_name}}</h3>
-               <h3>phone_number: {{registration.phone_number}}</h3>
-               <h3>Email Address: {{registration.email}}</h3>
-               <h3>Date of Birth: {{registration.date_of_birth}}</h3>
-               <h3>Biography</h3>
-               <p>{{registration.biography}}</p>
+            <div class="input-box">
+               <h3>First Name: {{ registration.first_name }}</h3>
+               <h3>Last Name: {{ registration.last_name }}</h3>
+               <h3>Phone Number: {{ registration.phone_number }}</h3>
+               <h3>Email Address: {{ registration.email }}</h3>
+               <h3>Date of Birth: {{ registration.date_of_birth }}</h3>
+               <h3>Location: {{ registration.location }}</h3>
+               <h3>Biography: {{ registration.biography }}</h3>
+
             </div>
 
             <div class="button-class">
@@ -90,29 +91,35 @@
             <table>
                <thead>
                   <tr>
-                     <th>Id</th>
-                     <th>First Name </th>
-                     <th>Last Name</th>
-                     <th>Contact</th>
+                     <th>id</th>
+                     <th> First Name </th>
+                     <th>Second Name</th>
+                     <th>Phone Number</th>
                      <th>Email</th>
-                     <th>Date of birth</th>
+                     <th>Date of Birth</th>
                      <th>Location</th>
                      <th>Biography</th>
+                     <th>Action</th>
                   </tr>
                </thead>
 
                <tbody>
-                  <tr v-for="(student, index) in listOfStudents" :key="index">
-                     <td>{{index}}</td>
-                     <td>{{student.first_name}}</td>
-                     <td>{{student.last_name}}</td>
-                     <td>{{student.phone_number}}</td>
-                     <td>{{student.email}}</td>
-                     <td>{{student.date_of_birth}}</td>
-                     <td>{{student.location}}</td>
-                     <td>{{student.biography}}</td>
+                  <tr v-for="(student, index) in allStudents" :key="index">
+                     <th>{{ student.id }}</th>
+                     <th>{{ student.first_name }} </th>
+                     <th>{{ student.last_name }}</th>
+                     <th>{{ student.phone_number }}</th>
+                     <th>{{ student.email }}</th>
+                     <th>{{ student.date_of_birth }}</th>
+                     <th>{{ student.location }}</th>
+                     <th>{{ student.biography }}</th>
+                     <td style="text-align: center;">
+                        <span class="edit">Edit</span>
+                        <span class="del">Delete</span>
+                     </td>
                   </tr>
                </tbody>
+
             </table>
          </Card>
       </div>
@@ -143,8 +150,9 @@
             </div>
          </div>
       </div>
-   </div>
 
+
+   </div>
 
    <!-- Script tag outside the wrapper -->
    <script>
@@ -168,14 +176,17 @@
                      name: "About"
                   },
                   {
-                     link: "register",
-                     name: "Register"
+                     link: "login",
+                     name: "Login"
                   },
                   {
-                     link: "product",
-                     name: "Products"
+                     link: "Achievements",
+                     name: "Achievments"
                   },
-
+                  {
+                     link: "library",
+                     name: "Library"
+                  }
                ],
 
                registration: {
@@ -187,12 +198,22 @@
                   location: "",
                   biography: ""
                },
-               listOfStudents: []
+
+               listOfStudents: [],
+               allStudents: []
             }
+         },
+         created() {
+            this.fetchData();
          },
          methods: {
             saveData() {
-               this.listOfStudents.push({
+
+               let oldStudent = localStorage.getItem("students");
+               let parseOldData = JSON.parse(oldStudent);
+
+               let student = {
+                  id: parseOldData ? parseOldData.lenght++ : 1,
                   first_name: this.registration.first_name,
                   last_name: this.registration.last_name,
                   phone_number: this.registration.phone_number,
@@ -200,12 +221,29 @@
                   date_of_birth: this.registration.date_of_birth,
                   location: this.registration.location,
                   biography: this.registration.biography
-               });
+               };
+
+               this.listOfStudents = parseOldData ? [student, ...parseOldData] : [student];
+
+               localStorage.setItem("students", JSON.stringify(this.listOfStudents));
+
+               let students = localStorage.getItem("students")
+
+               this.allStudents = JSON.parse(students);
+
                this.clearField();
+
+            },
+
+            fetchData() {
+               let students = localStorage.getItem("students");
+               this.allStudents = JSON.parse(students);
             },
 
             clearField() {
-               Object.keys(this.registration)
+               Object.key(this.registration).forEach(key => {
+                  this.registration[key] = "";
+               })
             }
          }
       }).mount("#wrapper");
