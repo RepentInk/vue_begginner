@@ -30,3 +30,8 @@
     width: 100%;
    
 }
+
+.form-body{
+    display: flex;
+    flex-direction: column;
+}
