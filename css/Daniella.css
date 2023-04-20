@@ -1,0 +1,32 @@
+.about-section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    height: 450px;
+    margin: 40px 0;
+ 
+}
+ .first-part{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    height: 100%;
+    padding-top: 40px;
+   
+ }
+ .first-part p{
+    font-size: 18px;
+    line-height: 25px;
+    font-style: italic;
+ }
+.about-img{
+    width: 300px;
+    height: 100%;
+    
+}
+.about-section img{
+    background-color:black;
+    width: 100%;
+   
+}
