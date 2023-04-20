@@ -58,17 +58,15 @@
                <textarea name="comment" v-model="registration.biography" id="" cols="40" rows="5"></textarea>
             </div>
 
-            <div class="input-box">
-               <h3>First Name: {{ registration.first_name }}</h3>
-               <h3>Last Name: {{ registration.last_name }}</h3>
-               <h3>Phone Number: {{ registration.phone_number }}</h3>
-               <h3>Email Address: {{ registration.email }}</h3>
-               <h3>Date of Birth: {{ registration.date_of_birth }}</h3>
-               <h3>Location: {{ registration.location }}</h3>
-               <h3>Biography: {{ registration.biography }}</h3>
-
+            <div
+               style="border: 1px solid gray; border-radius: 0.2rem; height: 300px; margin: 9px; padding: 5px; overflow: auto;">
+               <h3>First Name: {{registration.first_name}}</h3>
+               <h3>Last Name: {{registration.last_name}}</h3>
+               <h3>phone_number: {{registration.phone_number}}</h3>
+               <h3>Email Address: {{registration.email_address}}</h3>
+               <h3>Date of Birth: {{registration.date_of_birth}}</h3>
+               <h3>Biography: {{registration.bio-input}}</h3>
             </div>
-
             <div class="button-class">
                <input type="button" class="btn" value="Clear">
                <input type="submit" class="btn" value="Submit">
@@ -98,24 +96,23 @@
                      <th>Email</th>
                      <th>Date of Birth</th>
                      <th>Location</th>
-                     <th>Biography</th>
+                     <th>Action</th>
                      <th>Action</th>
                   </tr>
                </thead>
 
                <tbody>
                   <tr v-for="(student, index) in allStudents" :key="index">
-                     <th>{{ student.id }}</th>
-                     <th>{{ student.first_name }} </th>
-                     <th>{{ student.last_name }}</th>
-                     <th>{{ student.phone_number }}</th>
-                     <th>{{ student.email }}</th>
-                     <th>{{ student.date_of_birth }}</th>
-                     <th>{{ student.location }}</th>
-                     <th>{{ student.biography }}</th>
-                     <td style="text-align: center;">
-                        <span class="edit">Edit</span>
-                        <span class="del">Delete</span>
+                     <td>{{index}}</td>
+                     <td>{{student.first_name}}</td>
+                     <td>{{student.last_name}}</td>
+                     <td>{{student.phone_number}}</td>
+                     <td>{{student.email_address}}</td>
+                     <td>{{student.date_of_birth}}</td>
+                     <td>{{student.location}}</td>
+                     <td>
+                        <button class="bred">del</button>
+                        <button class="bgreen">go</button>
                      </td>
                   </tr>
                </tbody>
@@ -198,7 +195,6 @@
                   location: "",
                   biography: ""
                },
-
                listOfStudents: [],
                allStudents: []
             }
@@ -206,14 +202,13 @@
          created() {
             this.fetchData();
          },
+
          methods: {
             saveData() {
-
-               let oldStudent = localStorage.getItem("students");
-               let parseOldData = JSON.parse(oldStudent);
+               let oldStudents = localStorage.getItem("students")
+               let parseOldData = JSON.parse(oldStudents);
 
                let student = {
-                  id: parseOldData ? parseOldData.lenght++ : 1,
                   first_name: this.registration.first_name,
                   last_name: this.registration.last_name,
                   phone_number: this.registration.phone_number,
@@ -240,10 +235,20 @@
                this.allStudents = JSON.parse(students);
             },
 
+            fetchData() {
+               let students = localStorage.getItem("students");
+               this.allStudents = JSON.parse(students);
+            },
+
+            fetchData() {
+               let students = localStorage.getItem("students");
+               this.allStudents = JSON.parse(students);
+            },
+
             clearField() {
-               Object.key(this.registration).forEach(key => {
+               Object.keys(this.registration).forEach(key => {
                   this.registration[key] = "";
-               })
+               });
             }
          }
       }).mount("#wrapper");
