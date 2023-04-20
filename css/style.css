@@ -1,6 +1,4 @@
-.header-section {
-  /* margin-bottom: 1.5rem; */
-}
+
 
 nav {
   display: flex;
@@ -237,4 +235,29 @@ border-radius: 20%;
 }
 .products ul > a:hover {
   transform: scale(1.1);
+}
+
+.bred {
+  background-color: rgb(205, 31, 31);
+  width: 40%;
+  height: 30px;
+  padding: 5px;
+  border-radius: 3px;
+  margin-left: 2%;
+}
+.bred:hover {
+  cursor: pointer;
+  border: 1px solid black;
+}
+.bgreen {
+  background-color: green;
+  width: 40%;
+  height: 30px;
+  padding: 5px;
+  border-radius: 3px;
+  margin-left: 3%;
+}
+.bgreen:hover {
+  cursor: pointer;
+  border: 1px solid black;
 }

@@ -62,12 +62,10 @@
                <h3>First Name: {{registration.first_name}}</h3>
                <h3>Last Name: {{registration.last_name}}</h3>
                <h3>phone_number: {{registration.phone_number}}</h3>
-               <h3>Email Address: {{registration.email}}</h3>
+               <h3>Email Address: {{registration.email_address}}</h3>
                <h3>Date of Birth: {{registration.date_of_birth}}</h3>
-               <h3>Biography</h3>
-               <p>{{registration.biography}}</p>
+               <h3>Biography: {{registration.bio-input}}</h3>
             </div>
-
             <div class="button-class">
                <input type="button" class="btn" value="Clear">
                <input type="submit" class="btn" value="Submit">
@@ -97,20 +95,23 @@
                      <th>Email</th>
                      <th>Date of birth</th>
                      <th>Location</th>
-                     <th>Biography</th>
+                     <th>Action</th>
                   </tr>
                </thead>
 
                <tbody>
-                  <tr v-for="(student, index) in listOfStudents" :key="index">
+                  <tr v-for="(student, index) in allStudents" :key="index">
                      <td>{{index}}</td>
                      <td>{{student.first_name}}</td>
                      <td>{{student.last_name}}</td>
                      <td>{{student.phone_number}}</td>
-                     <td>{{student.email}}</td>
+                     <td>{{student.email_address}}</td>
                      <td>{{student.date_of_birth}}</td>
                      <td>{{student.location}}</td>
-                     <td>{{student.biography}}</td>
+                     <td>
+                        <button class="bred">del</button>
+                        <button class="bgreen">go</button>
+                     </td>
                   </tr>
                </tbody>
             </table>
@@ -187,12 +188,20 @@
                   location: "",
                   biography: ""
                },
-               listOfStudents: []
+               listOfStudents: [],
+               allStudents: []
             }
          },
+         created() {
+            this.fetchData();
+         },
+
          methods: {
             saveData() {
-               this.listOfStudents.push({
+               let oldStudents = localStorage.getItem("students")
+               let parseOldData = JSON.parse(oldStudents);
+
+               let student = {
                   first_name: this.registration.first_name,
                   last_name: this.registration.last_name,
                   phone_number: this.registration.phone_number,
@@ -200,12 +209,28 @@
                   date_of_birth: this.registration.date_of_birth,
                   location: this.registration.location,
                   biography: this.registration.biography
-               });
+               };
+
+               this.listOfStudents = parseOldData ? [student, ...parseOldData] : [student];
+
+               localStorage.setItem("students", JSON.stringify(this.listOfStudents));
+
+               let students = localStorage.getItem("students")
+
+               this.allStudents = JSON.parse(students);
+
                this.clearField();
             },
 
+            fetchData() {
+               let students = localStorage.getItem("students");
+               this.allStudents = JSON.parse(students);
+            },
+
             clearField() {
-               Object.keys(this.registration)
+               Object.keys(this.registration).forEach(key => {
+                  this.registration[key] = "";
+               });
             }
          }
       }).mount("#wrapper");
