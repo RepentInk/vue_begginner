@@ -4,10 +4,10 @@
    <title>Vue For Beginners</title>
    <link rel="stylesheet" href="./css/style.css">
 
-   <!-- Add Vue js -->
    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
 </head>
+
 
 <body>
 
@@ -31,11 +31,10 @@
 
 
 
-
       <!-- Page Section Form -->
       <div class="form-section">
-         <h2>{{formTitle}}</h2>
-         <form @submit.preventn="saveData" class="my-form">
+         <h2>MAXIM REGISTRATION FORM</h2>
+         <form @submit.prevent="saveData" action="" class="my-form">
             <div class="input-form">
                <div>
                   <input type="text" required v-model="registration.first_name" id="fname" name="fname" value=""
@@ -48,31 +47,29 @@
                <div>
                   <input type="text" required v-model="registration.last_name" id="lname" name="lname" value=""
                      placeholder="Last Name">
-                  <input type="email" required v-model="registration.email" id="email" name="email" value=""
+                  <input type="email" required v-model="registration.email_address" id="email" name="email" value=""
                      placeholder="Your Email">
-                  <input type="text" v-model="registration.location" id="location" name="location" value=""
+                  <input type="text" required v-model="registration.location" id="location" name="location" value=""
                      placeholder="Location">
                </div>
             </div>
             <div class="bio-input">
-               <textarea name="comment" id="" v-model="registration.biography" cols="40" rows="5"></textarea>
+               <textarea name="comment" v-model="registration.biography" id="" cols="40" rows="5"></textarea>
             </div>
 
             <div
-               style="border: 1px solid black; border-radius: 1px; height: 300px; margin: 15px; padding: 5px; overflow: auto;">
+               style="border: 1px solid gray; border-radius: 0.2rem; height: 300px; margin: 9px; padding: 5px; overflow: auto;">
                <h3>First Name: {{registration.first_name}}</h3>
-               <h3>First Name: {{registration.last_name}}</h3>
                <h3>Last Name: {{registration.last_name}}</h3>
-               <h3>Phone Number: {{registration.phone_number}}</h3>
+               <h3>phone_number: {{registration.phone_number}}</h3>
                <h3>Email Address: {{registration.email}}</h3>
-               <h3>Location: {{registration.location}}</h3>
-               <h3>Biography: {{registration.biography}}</h3>
-               <h3>Date Of Birth: {{registration.date_of_birth}}</h3>
-
+               <h3>Date of Birth: {{registration.date_of_birth}}</h3>
+               <h3>Biography</h3>
+               <p>{{registration.biography}}</p>
             </div>
 
             <div class="button-class">
-               <input type="submit" class="btn" value="Clear">
+               <input type="button" class="btn" value="Clear">
                <input type="submit" class="btn" value="Submit">
             </div>
          </form>
@@ -103,18 +100,18 @@
                      <th>Biography</th>
                   </tr>
                </thead>
+
                <tbody>
-                  <tr v-for="(syudent, index) in listOfStudents" :key="index">
-                     <td>{{ index += 1}}</td>
+                  <tr v-for="(student, index) in listOfStudents" :key="index">
+                     <td>{{index}}</td>
                      <td>{{student.first_name}}</td>
                      <td>{{student.last_name}}</td>
-                     <td>{{student.contact}}</td>
+                     <td>{{student.phone_number}}</td>
                      <td>{{student.email}}</td>
                      <td>{{student.date_of_birth}}</td>
                      <td>{{student.location}}</td>
                      <td>{{student.biography}}</td>
                   </tr>
-
                </tbody>
             </table>
          </Card>
@@ -146,9 +143,8 @@
             </div>
          </div>
       </div>
-
-
    </div>
+
 
    <!-- Script tag outside the wrapper -->
    <script>
@@ -191,20 +187,27 @@
                   location: "",
                   biography: ""
                },
-               lostOfStudents: [
-
-               ]
+               listOfStudents: []
             }
          },
-
          methods: {
-
             saveData() {
-               this.lostOfStudents.push(this.registration)
+               this.listOfStudents.push({
+                  first_name: this.registration.first_name,
+                  last_name: this.registration.last_name,
+                  phone_number: this.registration.phone_number,
+                  email: this.registration.email,
+                  date_of_birth: this.registration.date_of_birth,
+                  location: this.registration.location,
+                  biography: this.registration.biography
+               });
+               this.clearField();
+            },
+
+            clearField() {
+               Object.keys(this.registration)
             }
-
          }
-
       }).mount("#wrapper");
    </script>
 </body>
