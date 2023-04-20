@@ -1,0 +1,74 @@
+.about-us {
+    background-color: rgb(233, 230, 230);
+    display: flex;
+    flex-direction: row;
+   align-content: center;
+   }
+   
+   .pic {
+      width: 300px; 
+      height: 300px;
+      margin-top: 40px;
+      margin-left: 20px;
+      border-radius: 170px;
+   }
+   
+   .text {
+    margin-left: 70px; 
+    margin-bottom: 15px;
+    font-style: oblique;
+    font-size: 20px;
+     
+   }
+   
+   h2 {
+       border-bottom: 2px solid black;
+   }
+   
+   .sd-pic{
+       width: 200px;
+       height: 200px;
+       
+   }
+   
+   .IT-pic{
+       width: 200px;
+       height: 200px; 
+   }
+   
+   .sub-section{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      font-style: oblique;
+   }
+   
+   h4 {
+       margin-top: 40px;
+   }
+   
+   .IT-support {
+       margin-left: 30px;
+   }
+   
+   h3 {
+       margin-left: 300px;
+   }
+   
+   .contact { 
+       background-color: bisque;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       justify-content: center;
+   }
+   
+   .contact-me {
+       display: flex;
+       flex-direction: row;
+       justify-content: center;
+       align-items: center;
+       gap: 40px;
+   }
+   
