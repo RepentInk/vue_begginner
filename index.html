@@ -4,16 +4,14 @@
    <title>Vue For Beginners</title>
    <link rel="stylesheet" href="./css/style.css">
 
-   <!-- Add Vue js -->
+   <!-- Add Vue CDN -->
    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
 </head>
 
 <body>
-
    <div id="wrapper">
-
-      <!-- Page Header -->
+      <!-- header -->
       <div class="header-section">
          <header>
             <nav>
@@ -25,109 +23,83 @@
          </header>
       </div>
 
-
-
-
-
-
-
-
-      <!-- Page Section Form -->
+      <!-- form -->
       <div class="form-section">
-         <h2>{{formTitle}}</h2>
+         <h2>{{ formTitle }}</h2>
          <form @submit.prevent="saveData" class="my-form">
             <div class="input-form">
                <div>
-                  <input type="text" required v-model="registration.first_name" id="fname" name="fname"
-                     placeholder="First Name">
-                  <input type="tel" required v-model="registration.phone_number" id="phone" name="phone"
+                  <input type="text" required v-model="registration.first_name" id="fname" :placeholder="placeFName">
+                  <input type="tel" required v-model="registration.phone_number" id="phone"
                      placeholder="+233 55 753 2439">
-                  <input type="date" required v-model="registration.date_of_birth" id="date" name="date"
+                  <input type="date" required v-model="registration.date_of_birth" id="date"
                      placeholder="Date of Birth">
                </div>
                <div>
-                  <input type="text" required v-model="registration.last_name" id="lname" name="lname"
-                     placeholder="Last Name">
-                  <input type="email" required v-model="registration.email" id="email" name="email"
-                     placeholder="Your Email">
-                  <input type="text" required v-model="registration.location" id="location" name="location"
-                     placeholder="Location">
+                  <input type="text" required v-model="registration.last_name" id="lname" placeholder="Last Name">
+                  <input type="email" required v-model="registration.email" id="email" placeholder="Your Email">
+                  <input type="text" required v-model="registration.location" id="location" placeholder="Location">
                </div>
             </div>
             <div class="bio-input">
-               <textarea name="comment" v-model="registration.biography" id="" cols="40" rows="5"></textarea>
+               <textarea name="comment" v-model="registration.biography" id="biography" cols="40" rows="5"></textarea>
             </div>
 
             <div
-               style="border: 1px solid gray; border-radius: 0.2rem; height: 300px; margin: 9px; padding: 5px; overflow: auto;">
-               <h3>First Name: {{registration.first_name}}</h3>
-               <h3>Last Name: {{registration.last_name}}</h3>
-               <h3>phone_number: {{registration.phone_number}}</h3>
-               <h3>Email Address: {{registration.email_address}}</h3>
-               <h3>Date of Birth: {{registration.date_of_birth}}</h3>
-               <h3>Biography: {{registration.bio-input}}</h3>
+               style="border: 1px solid gray; border-radius: 0.2rem; height: 160px; margin: 6px; padding: 5px; overflow: auto;">
+               <h3>First Name: {{ registration.first_name }}</h3>
+               <h3>Last Name: {{ registration.last_name }}</h3>
+               <h3>Phone Number: {{ registration.phone_number }}</h3>
+               <h3>Email Address: {{ registration.email }}</h3>
+               <h3>Location: {{ registration.location }}</h3>
+               <h3>Biography</h3>
+               <p>{{ registration.biography }}</p>
             </div>
+
             <div class="button-class">
-               <input type="button" class="btn" value="Clear">
-               <input type="submit" class="btn" value="Submit">
+               <input @click.prevent="clearField()" type="button" class="btn" value="Clear">
+               <input type="submit" class="btn" :value="submitData">
             </div>
          </form>
       </div>
 
-
-
-
-
-
-
-
-
-      <!-- Page Section Table -->
+      <!-- table -->
       <div class="table-section">
          <h2>LIST OF ALL APPLICANTS</h2>
          <Card class="card">
             <table>
                <thead>
                   <tr>
-                     <th>id</th>
-                     <th> First Name </th>
-                     <th>Second Name</th>
-                     <th>Phone Number</th>
+                     <th>ID</th>
+                     <th>First Name </th>
+                     <th>Last Name</th>
+                     <th>Contact</th>
                      <th>Email</th>
-                     <th>Date of Birth</th>
+                     <th>Date of birth</th>
                      <th>Location</th>
-                     <th>Action</th>
-                     <th>Action</th>
+                     <th>Actions</th>
                   </tr>
                </thead>
-
                <tbody>
                   <tr v-for="(student, index) in allStudents" :key="index">
-                     <td>{{index}}</td>
-                     <td>{{student.first_name}}</td>
-                     <td>{{student.last_name}}</td>
-                     <td>{{student.phone_number}}</td>
-                     <td>{{student.email_address}}</td>
-                     <td>{{student.date_of_birth}}</td>
-                     <td>{{student.location}}</td>
-                     <td>
-                        <button class="bred">del</button>
-                        <button class="bgreen">go</button>
+                     <td>{{ student.id }}</td>
+                     <td>{{ student.first_name }}</td>
+                     <td>{{ student.last_name }}</td>
+                     <td>{{ student.phone_number }}</td>
+                     <td>{{ student.email }}</td>
+                     <td>{{ student.date_of_birth }}</td>
+                     <td>{{ student.location }}</td>
+                     <td style="text-align: center">
+                        <span @click.prevent="editData(student)" class="edit">Edit</span>
+                        <span class="del">Delete</span>
                      </td>
                   </tr>
                </tbody>
-
             </table>
          </Card>
       </div>
 
-
-
-
-
-
-
-      <!-- Body Section Footer -->
+      <!-- footer -->
       <div class="footer-section">
          <div class="footer-links">
             <div class="social-icons">
@@ -148,45 +120,42 @@
          </div>
       </div>
 
-
    </div>
 
-   <!-- Script tag outside the wrapper -->
+   <!-- script tag outside the wrapper -->
    <script>
       const { createApp } = Vue;
 
       createApp({
+         // data
          data() {
             return {
-               formTitle: "MAXIM REGISTRATION FORM",
+               placeFName: "First Name",
+               updateData: false,
                headerItems: [
                   {
-                     link: "/index.html",
+                     link: "index.html",
                      name: "Home"
                   },
                   {
-                     link: "/contact.html",
+                     link: "contact.html",
                      name: "Contact"
                   },
                   {
-                     link: "/about.html",
+                     link: "about.html",
                      name: "About"
                   },
                   {
-                     link: "login",
-                     name: "Login"
+                     link: "product.html",
+                     name: "Products"
                   },
                   {
-                     link: "Achievements",
-                     name: "Achievments"
+                     link: "archive.html",
+                     name: "Archive"
                   },
-                  {
-                     link: "library",
-                     name: "Library"
-                  }
                ],
-
                registration: {
+                  id: "",
                   first_name: "",
                   last_name: "",
                   phone_number: "",
@@ -199,16 +168,32 @@
                allStudents: []
             }
          },
+
+         // Computed 
+         computed: {
+            formTitle() {
+               return this.updateData ? "UPDATE STUDENT RECORD" : "ADD NEW STUDENT RECORD";
+            },
+
+            submitData() {
+               return this.updateData ? "Edit Data" : "Save Data"
+            }
+         },
+
+         // Created
          created() {
             this.fetchData();
          },
 
+         // Methods
          methods: {
+
             saveData() {
-               let oldStudents = localStorage.getItem("students")
+               let oldStudents = localStorage.getItem("students");
                let parseOldData = JSON.parse(oldStudents);
 
                let student = {
+                  id: parseOldData ? parseOldData.length + 1 : 1,
                   first_name: this.registration.first_name,
                   last_name: this.registration.last_name,
                   phone_number: this.registration.phone_number,
@@ -222,22 +207,10 @@
 
                localStorage.setItem("students", JSON.stringify(this.listOfStudents));
 
-               let students = localStorage.getItem("students")
-
+               let students = localStorage.getItem("students");
                this.allStudents = JSON.parse(students);
 
                this.clearField();
-
-            },
-
-            fetchData() {
-               let students = localStorage.getItem("students");
-               this.allStudents = JSON.parse(students);
-            },
-
-            fetchData() {
-               let students = localStorage.getItem("students");
-               this.allStudents = JSON.parse(students);
             },
 
             fetchData() {
@@ -249,10 +222,26 @@
                Object.keys(this.registration).forEach(key => {
                   this.registration[key] = "";
                });
+               this.updateData = false;
+            },
+
+            editData(student) {
+               Object.keys(this.registration).forEach(key => {
+                  this.registration[key] = student[key]
+               });
+               this.updateData = true;
             }
-         }
+
+         },
+
+         // Mounted
+         mounted() {
+
+         },
+
       }).mount("#wrapper");
    </script>
+
 </body>
 
 </html>
