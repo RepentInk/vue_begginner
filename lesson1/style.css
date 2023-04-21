@@ -1,3 +1,10 @@
+.header-section {
+  margin-bottom: 1.5rem;
+}
+
+
+
+
 nav {
   display: flex;
   justify-content: space-between;
@@ -122,6 +129,18 @@ textarea {
 
 .button-class {
   width: 100%;
+}
+
+.input-box {
+  border: 1px solid grey;
+  border-radius: 0.2rem;
+  height: 100px;
+  width: 98.4%;
+  margin: 10px auto;
+  overflow: auto;
+  padding: 10px;
+  scroll-behavior: smooth;
+  height: 20vh;
 }
 
 /* Page Table */
@@ -256,93 +275,24 @@ th {
   transform: scale(1.1);
 }
 
-.bred {
-  background-color: rgb(205, 31, 31);
-  width: 40%;
-  height: 30px;
-  padding: 5px;
-  border-radius: 3px;
-  margin-left: 2%;
-}
-
-.bred:hover {
-  cursor: pointer;
-  border: 1px solid black;
-}
-
-.bgreen {
+.editButton {
   background-color: green;
-  width: 40%;
-  height: 30px;
-  padding: 5px;
-  border-radius: 3px;
-  margin-left: 3%;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
 }
 
-.bgreen:hover {
-  cursor: pointer;
-  border: 1px solid black;
+.deleteButton {
+  color: white;
+  background-color: red;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 3px;
+
 }
 
-.bred {
-  background-color: rgb(205, 31, 31);
-  width: 40%;
-  height: 30px;
-  padding: 5px;
-  border-radius: 3px;
-  margin-left: 2%;
-}
-
-.bred:hover {
-  cursor: pointer;
-  border: 1px solid black;
-}
-
-.bgreen {
-  background-color: green;
-  width: 40%;
-  height: 30px;
-  padding: 5px;
-  border-radius: 3px;
-  margin-left: 3%;
-}
-
-.bgreen:hover {
-  cursor: pointer;
-  border: 1px solid black;
-}
-
-.input-box {
-  height: 300px;
-  border: 1px solid black;
-  width: 95%;
-  margin: 3%;
-  padding: 5px;
-}
-
-.del {
-  width: 3%;
-  padding: 3px;
-  height: 5px;
-  background-color: rgb(210, 28, 28);
-  margin-left: 4%;
-  border-radius: 2px;
-}
-
-.del:hover {
-  border: 1px solid black;
-  cursor: pointer;
-}
-
-.edit {
-  width: 3%;
-  padding: 3px;
-  height: 5px;
-  background-color: green;
-  border-radius: 2px;
-}
-
-.edit:hover {
+.deleteButton:hover,
+.editButton:hover {
   border: 1px solid black;
   cursor: pointer;
 }
