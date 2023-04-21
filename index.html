@@ -1,7 +1,10 @@
 <!DOCTYPE html>
+<html lang="en">
   <head>
-     <title>Vue For Beginners</title>
-     <link rel="stylesheet" href="./css/style.css">
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Vue For Beginners</title>
+   <link rel="stylesheet" href="./css/style.css">
 
      <!-- Add Vue CDN -->
      <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -38,7 +41,7 @@
                   </div>
                </div>
                <div class="bio-input">
-                  <textarea name="comment" v-model="registration.biography" id="biography" cols="40" rows="5"></textarea>
+                  <textarea name="comment" v-model="registration.biography" id="biography" cols="40" rows="5" placeholder="Biography"></textarea>
                </div>
 
                <div style="border: 1px solid gray; border-radius: 0.2rem; height: 160px; margin: 6px; padding: 5px; overflow: auto;">
@@ -52,8 +55,8 @@
                </div>
 
                <div class="button-class">
-                  <input type="button" class="btn" value="Clear">
-                  <input type="submit" class="btn" value="Submit">
+                  <input @click.prevent="clearField()" type="button" class="btn" value="Clear">
+                  <input type="submit" class="btn" :value="submitData">
                </div>
             </form>
          </div>
@@ -72,19 +75,22 @@
                         <th>Email</th>
                         <th>Date of birth</th>
                         <th>Location</th>
-                        <th>Biography</th>
+                        <th>Action</th>
                      </tr>
                   </thead>
                   <tbody>
-                     <tr v-for="(student, index) in listOfStudents" :key="index">
-                        <td>{{ index }}</td>
+                     <tr v-for="(student, index) in allStudents" :key="index">
+                        <td>{{ student.id }}</td>
                         <td>{{ student.first_name }}</td>
                         <td>{{ student.last_name }}</td>
                         <td>{{ student.phone_number }}</td>
                         <td>{{ student.email }}</td>
                         <td>{{ student.date_of_birth }}</td>
                         <td>{{ student.location }}</td>
-                        <td>{{ student.biography }}</td>
+                        <td>
+                           <span @click.prevent="editData(student)" style="cursor: pointer; background-color: blue; padding: 10px; border-radius: 5px; color: white;">Edit</span>
+                           <span style="cursor: pointer; background-color: red; padding: 10px; margin: 10px; border-radius: 5px; color: white;">Delete</span>
+                        </td>
                      </tr>
                   </tbody>
               </table>
@@ -121,7 +127,8 @@
          createApp({
             data() {
                return {
-                  formTitle: "MAXIM REGISTRATION FORM UPDATED",
+               placeFName: "First Name",
+               updateData: false,
                   headerItems: [
                      {
                         link: "index.html",
@@ -145,6 +152,7 @@
                      },
                   ],
                   registration: {
+                     id: "",
                      first_name: "",
                      last_name: "",
                      phone_number: "",
@@ -153,32 +161,108 @@
                      location: "",
                      biography: ""
                   },
-                  listOfStudents: []
+                  listOfStudents: [],
+                  allStudents: []
                }
+            },
+
+            //computered property
+            computed: {
+               formTitle(){
+                  return this.updateData? "UPDATE STUDENT RECORD" : "ADD NEW STUDENT RECORD"
+               },
+
+               submitData(){
+                  return this.updateData ? "Edit Data" : "Save Data"
+               }
+            },
+
+
+            created(){
+              this.fetchData();
             },
             methods: {
 
                saveData() {
-                   this.listOfStudents.push({
-                        first_name: this.registration.first_name,
+
+                  let oldStudents = localStorage.getItem("students");
+                  let parseOldData = JSON.parse(oldStudents);
+                  let student;
+                 
+                  if(this.updateData){
+                     student = {
+                     id: this.registration.id,
+                     first_name: this.registration.first_name,
                         last_name: this.registration.last_name,
                         phone_number: this.registration.phone_number,
                         email: this.registration.email,
                         date_of_birth: this.registration.date_of_birth,
                         location: this.registration.location,
                         biography: this.registration.biography
-                   });
+                  };
+                  let oldStudent =this.allStudents.find((oldStd)=>oldStd.id==student.id)
+                  let oldStudentIndex= this.allStudents.indexOf(oldStudent)
+
+                 this.allStudents[oldStudentIndex]=student
+
+                  localStorage.setItem("students", JSON.stringify(this.allStudents));
+
+                  let students = localStorage.getItem("students");
+                  this.allStudents = JSON.parse(students);
+
+                  }
+                  else{
+                     student = {
+                     id: parseOldData ? parseOldData.length + 1:1,
+                     first_name: this.registration.first_name,
+                        last_name: this.registration.last_name,
+                        phone_number: this.registration.phone_number,
+                        email: this.registration.email,
+                        date_of_birth: this.registration.date_of_birth,
+                        location: this.registration.location,
+                        biography: this.registration.biography
+                  };
+
+                  this.listOfStudents = parseOldData ? [student, ...parseOldData] : [student]
+                  
+                  localStorage.setItem("students", JSON.stringify(this.listOfStudents));
+
+                  let students = localStorage.getItem("students");
+                  this.allStudents = JSON.parse(students);
+                  }
+                  
+
                    this.clearField();
+               },
+
+               fetchData(){
+                  let students = localStorage.getItem("students");
+                  this.allStudents = JSON.parse(students);
                },
 
                clearField() {
                   Object.keys(this.registration).forEach(key => {
                      this.registration[key] = "";
+                     
                   });
-               }
+                  this.updateData=false
+               },
+
+               editData(student){
+                  Object.keys(this.registration).forEach(key => {
+                     this.registration[key] = student[key]
+                     
+                  })
+                  this.updateData=true
+               },
+
+
+
+               
             }
          }).mount("#wrapper");
       </script>
         
   </body>
 </html>
+
