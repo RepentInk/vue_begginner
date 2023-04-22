@@ -1,0 +1,66 @@
+.employee {
+    align-items: center;
+    background-color: rgb(167, 152, 152);
+    width: 70%;
+    height: fit-content;
+    border-radius: 5px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.com_header {
+    height: 40px;
+    border-bottom: 2px solid gray;
+    text-align: center;
+    font-weight: bolder;
+    padding: 0 auto;
+    padding-bottom: 10px;
+}
+
+.com_body {
+    height: fit-content;
+}
+
+.com_footer {
+    height: fit-content;
+    border-top: 2px solid gray;
+    text-align: center;
+    font-weight: bolder; 
+}
+
+.clearBtn {
+    background-color: red;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 5px;
+    margin: 5px;
+    color: white;
+    width: 40%;
+    font-weight: 800;
+}
+
+.clearBtn:hover{
+    color: black;
+}
+
+.saveBtn {
+    background-color: rgb(12, 90, 17);
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 5px;
+    margin: 5px;
+    color: white;
+    width: 40%;
+    font-weight: 800;
+}
+
+.saveBtn:hover {
+    color: black;
+}
+
+.form-group {
+    display: inline-flex;
+    columns: 2;
+    width: 100%;
+}
