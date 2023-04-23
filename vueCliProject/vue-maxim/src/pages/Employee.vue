@@ -170,6 +170,13 @@ export default {
         axios.put("http://192.168.1.42:3000/employee/" + this.employee.emp_id, this.employee)
              .then(res => {
                  console.log(res);
+                 let editData = res.data;
+                 this.employees = this.employees.map(item => {
+                      if(editData.emp_id === item.emp_id) {
+                        return editData;
+                      }
+                      return item;
+                 });
              })
              .catch(error => {
                 console.log("Error: ", error);
