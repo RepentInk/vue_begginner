@@ -1,0 +1,72 @@
+/* 
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+} */
+.main-container{
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 50%;
+    padding: 20px;
+    /* background-color: #FFF; */
+    
+}
+
+.form-block{
+    /* margin-top: 50px; */
+    border: 1px solid;
+    padding: 30px 20px;
+    border-radius: 10px;
+}
+.form-block span{
+    font-size: 25px;
+    font-family: Sono;
+    font-weight: bolder;
+    color: teal;
+    /* margin-bottom: 15px; */
+}
+
+.form-block div{
+    padding: 20px;
+    border-radius: 10px;
+    background: #D4D4D4;
+    box-shadow:  22px 22px 44px #acacac,
+    -22px -22px 44px #ffffff;
+    margin: 10px 20px;
+}
+
+.form-block div input, select,select option{
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.form-block .buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    box-shadow: none;
+}
+.form-block .buttons button{
+    padding: 20px 40px;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.form-block .buttons button:nth-child(1){
+    background-color: red;
+    color: #FFF;
+}
+.form-block .buttons button:nth-child(2){
+    background-color: green;
+    color: #FFF;
+}
+

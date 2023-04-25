@@ -1,0 +1,34 @@
+.home-page{
+    background-image: url('/images/background.jpeg');
+    background-color: rgba(0, 0, 0, 0.29);
+    background-blend-mode: darken;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 0 40px;
+}
+.home-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    color: #f1f1f1;
+    gap:10px;
+    font-size: 25px;
+    font-weight: bold;
+}
+.home-text h1{
+    font-size: 80px;
+}
+.home-pic{
+    width: 500px;
+    object-fit: contain;
+}
+.home-pic img{
+    border-radius: 20px;
+    width: 100%;
+}

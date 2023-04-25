@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sono">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/company.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="main-container">
+        <h1>Employee Information</h1>
+
+        <form class="form-block">
+            <span>Personal info</span>
+            <div>
+                <input type="text" placeholder="Id"/>
+                <input type="text" placeholder="First name"/>
+                <input type="text" placeholder="Last name"/>
+            </div>
+            <span>Bio</span>
+            <div>
+                <input type="date" placeholder="Birthday"/>
+                <select name="gender" id="gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+            <span>Company</span>
+            <div>
+                <input type="text" placeholder="Salary"/>
+                <input type="text" placeholder="Super ID"/>
+                <input type="text" placeholder="Branch Id"/>
+            </div>
+            <div class="buttons">
+                <button>Clear</button>
+                <button>Save</button>
+            </div>
+        </form>
+    </div>
+
+    <div>
+        <h1>Employee Table</h1>
+        <!-- Page Section Table -->
+        <div class="table-section">
+            <Card class="card">
+               <table>
+                  <thead>
+                     <tr>
+                        <th>Id</th>
+                        <th>First Name </th>
+                        <th>Last Name</th>
+                        <th>Contact</th>
+                        <th>Email</th>
+                        <th>Date of birth</th>
+                        <th>Location</th>
+                        <th>Biography</th>
+                        <th>Actions</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <!-- <tr v-for="(student, index) in allStudents" :key="index">
+                        <td>{{ student.id }}</td>
+                        <td>{{ student.first_name }}</td>
+                        <td>{{ student.last_name }}</td>
+                        <td>{{ student.phone_number }}</td>
+                        <td>{{ student.email }}</td>
+                        <td>{{ student.date_of_birth }}</td>
+                        <td>{{ student.location }}</td>
+                        <td>{{ student.biography }}</td>
+                        <td>
+                           <span @click.prevent="editData(student)" class="editButton">Edit</span>
+                           <span class="deleteButton">Delete</span>
+                        </td>
+                     </tr> -->
+                     <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                     </tr>
+                  </tbody>
+                 
+               </table>
+            </Card>
+        </div>
+    </div>
+    
+</body>
+</html>

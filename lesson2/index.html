@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+  <head>
+     <title>Vue For Beginners</title>
+     <link rel="stylesheet" href="./css/style.css">
+     <link rel="stylesheet" href="./css/company.css">
+     <link rel="stylesheet" href="./css/about.css">
+     <link rel="stylesheet" href="./css/contact.css">
+     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+     <script src="https://unpkg.com/vue-router@4.0.15/dist/vue-router.global.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+   </head>
+  <body>
+      <div id="wrapper">
+         <!-- Page Header -->
+         <div class="header-section">
+            <header>
+               <nav>
+                  <a href="#" class="logo"><img src="images/logo.png" alt="SDB 2023"></a>
+                  <ul>
+                     <li><router-link to="/home">Home</router-link></li>
+                     <li><router-link to="/about">About</router-link></li>
+                     <li><router-link to="/contact">Contact</router-link></li>
+                     <li><router-link to="/company">Company</router-link></li>
+                  </ul>
+               </nav>
+            </header>
+         </div>
+
+         <!-- Container to hold pages -->
+         <div class="container">
+            <router-view></router-view>
+         </div>
+
+         
+
+         <!-- Body Section Footer -->
+         <div class="footer-section">
+            <div class="footer-links">
+               <div class="social-icons">
+                  <ul>
+                     <a href="https://www.facebook.com/maximnyansa/" target="_blank"></a>
+                     <a href="https://twitter.com/MaximNyansa" target="_blank"></a>
+                     <a href="https://www.linkedin.com/company/maxim-nyansa-it-solutions/" target="_blank"></a>
+                  </ul>
+               </div>
+               <div class="products">
+                  <h4>Maxim Products</h4>
+                  <ul>
+                     <a href="https://web.trinitysoftwarecenter.com/" target="_blank">Trinity Software Center</a>
+                     <a href="https://skuuni.com/" target="_blank">Skuuni</a>
+                     <a href="https://library.maximnyansa.com" target="_blank">Maxim Digital Library</a>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <script src="pages/home.js"></script>
+      <script src="pages/about.js"></script>
+      <script src="pages/contact.js"></script>
+      <script src="pages/company.js"></script>
+      <script src="app.js"></script>
+   </body>
+</html>

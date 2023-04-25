@@ -1,0 +1,262 @@
+.header-section {
+  /* margin-bottom: 1.5rem; */
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #d4d4d4;
+  height: 70px;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+nav ul li {
+  margin: 0 10px;
+}
+
+nav ul li a {
+  color: #333;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+  background-color: #333;
+  color: #fff;
+}
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-right: auto;
+  color: #333;
+  text-decoration: none;
+}
+.logo img {
+  max-height: 100px;
+  margin-right: 10px;
+}
+
+/* Page Form */
+.form-section > h2 {
+   text-align: center;
+}
+
+.form-section {
+  margin: auto;
+  width: 50%;
+  overflow: auto;
+  padding: 3rem 2rem;
+  border-radius: 5px;
+  background-color: #f4f4f4;
+}
+
+.my-form {
+  padding: 2rem;
+}
+
+.input-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.button-class {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-class {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.btn {
+    width: 100%;
+    background: #333;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.btn:hover {
+  background: turquoise;
+  color: black;
+}
+
+input {
+    width: 85%;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+
+.bio-input {
+    display: flex;
+    margin: 0 auto;
+}
+
+textarea {
+    width: 93%;
+    padding: 20px;
+    margin-left: 10px;
+    resize: none;
+}
+
+.button-class {
+  width: 100%;
+}
+
+/* Page Table */
+.table-section h2 {
+  text-align: center;
+}
+.card {
+  display: flex;
+  background-color: #fff;
+  justify-content: center;
+  align-items: center;
+  /* padding: 0px 10px; */
+  width: 100%;
+  /* margin: auto; */
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 2rem;
+}
+.card table {
+  margin: 1rem;
+  border-collapse: collapse;
+  width: 100%;
+}
+.card td,
+th {
+  border: 1px solid;
+  padding: 20px;
+}
+.card table tr:nth-of-type(odd) {
+  background-color: rgb(200, 200, 200);
+}
+.card table thead tr th {
+  font-weight: bold;
+  background-color: aqua;
+}
+
+/* Page Footer */
+.footer-section{
+    box-sizing: border-box;
+    background: #d4d4d4;
+    width: 100%;
+    padding: 20px;
+    color: black;
+    padding-top: 50px
+    
+}
+.footer-section a{
+    color: black;
+    text-decoration: none;
+}
+
+.footer-links {
+  display: flex;
+  padding: 0 40px;
+}
+/* footer social icons */
+.social-icons{
+    width: 30%;
+}
+.social-icons ul{
+    display: flex;
+}
+.social-icons ul >a{
+  display: block;
+  background-position: center;
+  background-size: contain;
+  width: 40px;
+  height: 40px;
+  margin:  0 10px;
+  border-radius: 20%; 
+}
+.social-icons ul >a:hover{
+  box-shadow: 2px 2px 4px black;  
+  transition: all .3s ease-in-out; 
+}
+.social-icons a:nth-of-type(1) {
+  background-image: url(../images/logo-facebook.svg);
+}
+.social-icons a:nth-of-type(2) {
+  background-image: url(../images/logo-twitter.svg);
+}
+.social-icons a:nth-of-type(3) {
+  background-image: url(../images/logo-linkedin.svg);
+}
+/* footer products links */
+.products{
+    flex: 1;
+}
+.products h4 {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+}
+.products,
+.products ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.products> ul{
+    align-items: flex-start;
+     flex-direction: row;
+}
+.products ul >a{
+    margin: 0 10px ;
+    transform: scale(1);
+    transition: all .3s ease-in-out; 
+}
+.products ul > a:hover {
+  transform: scale(1.1);
+}
+
+.editButton{
+  background-color: green;
+  padding: 10px;
+  border-radius: 5px;
+  color: #fff;
+  margin: 5px;
+  font-size: 10px;
+}
+
+.editButton:hover{
+  background-color: rgb(4,3,39);
+}
+
+.deleteButton{
+  background-color: red;
+  padding: 10px;
+  border-radius: 5px;
+  color: #fff;
+  margin: 5px;
+  font-size: 10px;
+  font-weight: bolder;
+}

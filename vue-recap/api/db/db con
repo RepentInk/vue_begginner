@@ -1,0 +1,26 @@
+-- CREATE TABLE sex(
+-- 	sex_id varchar(2) PRIMARY KEY,
+-- 	sex_type varchar(10)
+-- );
+
+-- CREATE TABLE pronoun(
+-- 	pronoun_id varchar(2) PRIMARY KEY,
+--  pronoun_type varchar(10) 
+-- );
+
+-- INSERT INTO sex 
+-- VALUES
+-- 	("SM","Male"),
+--  ("SF", "Female");
+
+-- INSERT INTO pronoun
+-- VALUES ("PS", "She/Her"), ("PH", "He/Him"), ("PT", "They/Them"), ("PC", "Can't Say");
+
+-- CREATE TABLE trainees_info(
+--     trainee_id varchar(255) PRIMARY KEY,
+--     trainee_name varchar(255),
+--     trainee_sex varchar(2),
+--     trainee_pronoun varchar(2),
+--     CONSTRAINT fk_sex_id FOREIGN KEY (trainee_sex) REFERENCES sex(sex_id),
+--     CONSTRAINT fk_pronoun_id FOREIGN KEY (trainee_pronoun) REFERENCES pronoun(pronoun_id)
+-- )

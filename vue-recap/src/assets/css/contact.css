@@ -1,0 +1,21 @@
+.contact-img{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+.contact-img img{
+    width: 20%;
+    border-radius: 100%;
+}
+.contact-form{
+    height: 65vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+.contact-form input, select, button{
+    padding: 10px;
+    margin: 10px;
+}
